@@ -6,8 +6,6 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" charset="UTF-8">
@@ -23,11 +21,12 @@
             justify-content: center;
         }
 
-        .login_bg_image{
+        .login_bg_image {
             position: relative;
             width: 100%;
             height: 100vh;
         }
+
         .login__page .login_bg_image img {
             width: 85%;
             height: 100%;
@@ -44,14 +43,14 @@
             margin: 0 auto;
         }
 
-        @media(max-width: 1100px){
-            .login__page .login__box  {
+        @media (max-width: 1100px) {
+            .login__page .login__box {
                 width: 60%;
             }
         }
 
-        @media(max-width: 768px){
-            .login__page .login__box  {
+        @media (max-width: 768px) {
+            .login__page .login__box {
                 width: 90%;
             }
         }
@@ -64,7 +63,8 @@
             -webkit-filter: invert(1);
             filter: invert(1);
         }
-        .login_input{
+
+        .login_input {
             border-top: none;
             border-left: none;
             border-right: none;
@@ -73,6 +73,7 @@
             margin: 10px 0;
             outline: none;
         }
+
         .login__page .login__title {
             text-transform: uppercase;
             font-weight: bold;
@@ -144,7 +145,7 @@
             margin-bottom: 20px;
         }
 
-        .loginbtn{
+        .loginbtn {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -180,15 +181,27 @@
     <div class="login__box">
         <div class="login__logo"><a href="/"><img src="{{asset('img/logo.png')}}" alt="Logo1"></a></div>
         <h1 class="login__title">Войти в систему</h1>
-        <form>
-            <div class="form_group"><span></span><input class="login_input" id="user" type="text"
-                                                        placeholder="Пользователь" required="" name="adminName"></div>
-            <div class="form_group"><span></span><input class="login_input" type="password" placeholder="Пароль"
-                                                        required="" name="password"></div>
+
+        <form method="post" action="">
+            @csrf
+            <div class="form_group">
+                <input class="login_input" id="user" type="text"
+                       placeholder="Пользователь" required="" name="login"/>
+                @error('login')
+                <div class="text-danger">{{$message}}</div>
+                @enderror
+            </div>
+            <div class="form_group">
+                <input class="login_input" type="password" placeholder="Пароль"
+                       required="" name="password"/>
+                @error('password')
+                <div class="text-danger">{{$message}}</div>
+                @enderror
+            </div>
             <div class="radio_group"><input type="checkbox" id="rememberMe"><label for="rememberMe">Запомнить
                     меня</label></div>
             <div class="loginbtn">
-                <button type="submit" to="/admin-panel">Войти</button>
+                <button type="submit">Войти</button>
             </div>
         </form>
     </div>

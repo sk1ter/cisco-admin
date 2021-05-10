@@ -1,0 +1,132 @@
+body {
+    height: 100%;
+    min-height: 100%;
+    width: 99%;
+    max-width: 99%;
+    background-color: #f1f4ff;
+}
+
+.sidebar-width {
+    max-width: 330px;
+    height: 100%;
+    min-height: 100%;
+}
+.sidebar {
+    height: 100vh;
+    padding: 100px 50px;
+    background-color: #fff;
+    box-shadow: 5px 5px 50px rgba(22, 37, 80, 0.1);
+}
+
+.logo {
+    padding-bottom: 70px;
+    border-bottom: 1px solid #7598ff;
+}
+
+.sidebar .menu {
+    margin-top: 25px;
+}
+
+.sidebar .menu .title {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.sidebar .menu ul {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+}
+
+.sidebar .menu ul li {
+    background: url("img/Ellipse\ 5.png") no-repeat left 5px;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.sidebar .menu ul li.active {
+    background: url("img/Ellipse\ 4.png") no-repeat left 5px;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.sidebar .menu ul li:hover {
+    background: url("img/Ellipse\ 4.png") no-repeat left 5px;
+    padding-left: 20px;
+}
+
+.sidebar .menu ul li a {
+    text-decoration: none;
+    color: #666666;
+}
+
+.sidebar .menu ul li a:hover {
+    font-weight: bold;
+}
+
+.content {
+    margin-top: 120px;
+}
+
+.ccard {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 5px 5px 50px rgba(22, 37, 80, 0.1);
+}
+
+.ccard-body {
+    padding: 21px 40px;
+}
+
+.stat {
+    font-weight: bold;
+    font-size: 48px;
+}
+
+.content-body {
+    background-color: #fff;
+}
+
+.content-toolbar {
+    padding: 40px;
+}
+
+.content-toolbar_title {
+    text-transform: uppercase;
+    color: #7598ff;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.btn-cprimary {
+    background-color: #7598ff;
+    color: #fff;
+}
+
+.btn-cprimary:hover {
+    background-color: #5474d6;
+    color: #fff;
+}
+
+.btn-clight {
+    border: 1px solid #7598ff;
+    color: #7598ff;
+}
+
+.content-data {
+    padding: 40px;
+}
+
+.table {
+    margin-bottom: 20px;
+}
+.table th {
+    color: #7598ff;
+    border-bottom-color: #a8bcf8;
+    border-bottom-style: solid;
+    border-bottom-width: 0.5px;
+}
+
+.table tbody tr {
+    border-bottom: 0.5px solid #a8bcf8;
+}
