@@ -34,7 +34,8 @@
                         </li>
                         <li class="{{request()->route()->getName() === 'pointOfSales' ? 'active' : ''}}"><a
                                 href="{{route('pointOfSales')}}">Точки продаж</a></li>
-                        <li><a href="#">Продукция</a></li>
+                        <li class="{{request()->route()->getName() === 'products' ? 'active' : ''}}"><a
+                                href="{{route('products')}}">Продукция</a></li>
                         <li><a href="#">Медиафайлы</a></li>
                     </ul>
                 </div>

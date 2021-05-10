@@ -36,11 +36,11 @@ class AuthController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect(route('login_page'))->withErrors($validator->errors());
+            return redirect(route('login'))->withErrors($validator->errors());
         }
 
         if (!Auth::attempt($request->only('login', 'password'))) {
-            return redirect(route('login_page'))->withErrors((new MessageBag())->add('login', 'Логин или пароль неверный'));
+            return redirect(route('login'))->withErrors((new MessageBag())->add('login', 'Логин или пароль неверный'));
         }
 
         return redirect('/ap');
