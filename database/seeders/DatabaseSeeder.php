@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Contact;
+use App\Models\PointOfSale;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,8 +14,10 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
-         \App\Models\User::factory(1)->create();
+         User::factory(1)->create();
+         Contact::factory(20)->create();
+         PointOfSale::factory(6)->create();
     }
 }

@@ -4,7 +4,7 @@
         <div class="col-md-6">
             <div class="ccard p-1">
                 <div class="ccard-body">
-                    <div class="stat">0</div>
+                    <div class="stat">{{$contactsToday}}</div>
                     Заявки сегодня
                 </div>
             </div>
@@ -12,7 +12,7 @@
         <div class="col-md-6">
             <div class="ccard p-1">
                 <div class="ccard-body">
-                    <div class="stat">199</div>
+                    <div class="stat">{{$contactsCount}}</div>
                     Общее количество заявок
                 </div>
             </div>
@@ -41,22 +41,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>1</td>
-                </tr>
+                @foreach($contacts as $contact)
+                    <tr>
+                        <td>{{$contact->id}}</td>
+                        <td>{{$contact->first_name}}</td>
+                        <td>{{$contact->last_name}}</td>
+                        <td>{{$contact->phone}}</td>
+                        <td>{{$contact->email}}</td>
+                        <td>{{$contact->created_at->format('d.m.Y • H:i')}}</td>
+                    </tr>
+                @endforeach
                 </tbody>
             </table>
         </div>
