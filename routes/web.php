@@ -18,4 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', [AuthController::class, 'index'])->name('login_page');
 Route::post('/login', [AuthController::class, 'index'])->name('login_attempt');
 
-Route::get('ap', [PanelController::class, 'index']);
+
+Route::middleware('auth:web')->prefix('ap')->group(function () {
+    Route::get('/', [PanelController::class, 'index'])->name('panel');
+    Route::get('/point-of-sales', [PanelController::class, 'pointOfSales'])->name('pointOfSales');
+});
