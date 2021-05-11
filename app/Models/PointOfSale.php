@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $id
  * @property string $url
  * @property string $name
+ * @property string $image_url
  * @property string $description
  * @property string $phone
  * @property string $address
@@ -37,6 +38,7 @@ class PointOfSale extends Model
     protected $fillable = [
         'url',
         'name',
+        'image_url',
         'description',
         'phone',
         'address'

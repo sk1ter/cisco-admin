@@ -17,6 +17,7 @@ class CreatePointOfSalesTable extends Migration
             $table->id();
             $table->string('url', 4096);
             $table->string('name');
+            $table->string('image_url', 4096);
             $table->string('description', 2048);
             $table->string('phone');
             $table->string('address');

@@ -18,7 +18,8 @@ class PointOfSaleFactory extends Factory
            'name' => $this->faker->company,
            'description' => $this->faker->text,
            'phone' => $this->faker->phoneNumber,
-           'address' => $this->faker->address
+           'address' => $this->faker->address,
+           'image_url' => $this->faker->imageUrl()
        ];
     }
 }
