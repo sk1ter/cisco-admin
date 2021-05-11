@@ -7,18 +7,12 @@
         </div>
         <div class="content-data">
             @if($product !== null)
-                <img width="200" src="https://via.placeholder.com/640x480.png/004499?text=quia" alt="">
+                <img width="200" src="{{$product->image_url}}" alt="">
             @endif
-                <form action="">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form">
-                                <label for="image_url">Image</label>
-                                <input id="image_url" type="text" name="image_url" value="{{old('image_url', $product !== null ? $product->image_url : '')}}"/>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+               <div id="product-form"></div>
         </div>
     </div>
 @endsection
+@section('scripts')
+
+@append

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Contact;
+use App\Models\Field;
 use App\Models\PointOfSale;
 use App\Models\Product;
 use Illuminate\Contracts\Foundation\Application;
@@ -88,5 +89,67 @@ class PanelController extends Controller
             }
         }
         return view('panel.product-form', compact('product'));
+    }
+
+    public function createOrUpdateProduct(Request $request) {
+        $validator = Validator::make($request->input(), [
+            'id' => 'nullable|exists:products,id',
+            'name' => 'required',
+            'description' => 'required',
+            'image_url' => 'required|url',
+            'characteristics' => 'required',
+            'particular_qualities' => 'required',
+            'fields' => 'nullable|array',
+            'fields.*.identifier' => 'nullable|string',
+            'fields.*.key' => 'nullable|string',
+            'fields.*.value' => 'nullable|string'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => $validator->errors()->first()
+            ]);
+        }
+
+        if ($request->input('id') !== null) {
+            /**
+             * @var Product $product
+             */
+            $product = Product::whereId($request->input('id'))->get()->first();
+            if ($product === null) {
+                throw new NotFoundHttpException();
+            }
+            $product->update($request->input());
+
+        } else {
+            $product = Product::create($request->input());
+        }
+        if ($request->input('fields', false) !== false) {
+            $fields = $request->input('fields');
+            $product->fields()->delete();
+            foreach ($fields as $field) {
+                $field['fieldable_type'] = Product::class;
+                $field['fieldable_id'] = $product->id;
+                $product->fields()->save(Field::create($field));
+            }
+        }
+        return response()->json([
+            'success' => true
+        ]);
+    }
+
+    public function deleteProduct(Product $product)
+    {
+        $product->delete();
+        return response()->json([
+            'success' => true
+        ]);
+    }
+
+    public function getProduct(int $id): JsonResponse
+    {
+        $product = Product::with('fields')->where('id', $id)->get()->first();
+        return response()->json($product);
     }
 }
