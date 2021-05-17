@@ -36,6 +36,7 @@ use JetBrains\PhpStorm\Pure;
  * @property-read Collection|Field[] $fields
  * @property-read int|null $fields_count
  * @method static Builder|Product whereImageUrl($value)
+ * @method static \Database\Factories\ProductFactory factory(...$parameters)
  */
 class Product extends Model
 {

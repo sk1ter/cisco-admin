@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\Model;
  * @method static \Illuminate\Database\Eloquent\Builder|PointOfSale whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|PointOfSale whereUrl($value)
  * @mixin \Eloquent
+ * @method static \Illuminate\Database\Eloquent\Builder|PointOfSale whereImageUrl($value)
  */
 class PointOfSale extends Model
 {
