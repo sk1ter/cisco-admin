@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-8 col-md-6">
+                            <div class="col-lg-8 col-md-6" id="description">
                                 <div class="texno__descr">
                                     <h1 class="texno__label">
                                         Технологии для защиты вашего бизнеса

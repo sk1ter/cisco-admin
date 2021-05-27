@@ -41,19 +41,19 @@ body {
 }
 
 .sidebar .menu ul li {
-    background: url("img/Ellipse\ 5.png") no-repeat left 5px;
+    background: url("img/2.png") no-repeat left 5px;
     padding-left: 20px;
     margin-top: 20px;
 }
 
 .sidebar .menu ul li.active {
-    background: url("img/Ellipse\ 4.png") no-repeat left 5px;
+    background: url("img/1.png") no-repeat left 5px;
     padding-left: 20px;
     font-weight: bold;
 }
 
 .sidebar .menu ul li:hover {
-    background: url("img/Ellipse\ 4.png") no-repeat left 5px;
+    background: url("img/1.png") no-repeat left 5px;
     padding-left: 20px;
 }
 
