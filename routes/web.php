@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 Route::get('/login', [AuthController::class, 'index'])->name('login');
 Route::post('/login', [AuthController::class, 'index'])->name('login_attempt');
 
@@ -29,5 +29,7 @@ Route::middleware('auth:web')->prefix('ap')->group(function () {
     Route::delete('/products/{product}', [PanelController::class, 'deleteProduct'])->name('products.delete');
     Route::get('/products/form', [PanelController::class, 'productForm'])->name('productForm');
     Route::get('/products/{product}', [PanelController::class, 'getProduct'])->name('product.get');
+
+    Route::get('/media', [PanelController::class, 'media'])->name('media.get');
 
 });

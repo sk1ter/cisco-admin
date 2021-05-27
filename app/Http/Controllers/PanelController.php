@@ -152,4 +152,9 @@ class PanelController extends Controller
         $product = Product::with('fields')->where('id', $id)->get()->first();
         return response()->json($product);
     }
+
+    public function media()
+    {
+        return \view('panel.media');
+    }
 }
